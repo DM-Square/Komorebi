@@ -1,11 +1,13 @@
 import React from "react";
+import Timer from "../components/Timer/Timer";
 
 const Meditate = () => {
   return (
-    <div>
-      <h1>Meditate Page</h1>
-      <p>This is the meditate page of our application.</p>
-    </div>
+    <>
+      <div className="flex h-screen flex-col items-center justify-center text-center bg-mist-800 px-7">
+        <Timer />
+      </div>
+    </>
   );
 };
 

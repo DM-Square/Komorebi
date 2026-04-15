@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="flex absolute w-full items-center justify-between p-4 bg-mist-800"
+      className="flex fixed md:absolute w-full items-center justify-between p-4 bg-mist-800"
       ref={ref}
     >
       <img src="" alt="Komorebi Logo" className="flex px-3" />
@@ -50,7 +50,7 @@ const Navbar = () => {
         >
           <motion.span
             animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
             className="block w-6 h-0.5 bg-emerald-400 origin-center"
           />
           <motion.span
@@ -62,7 +62,7 @@ const Navbar = () => {
           />
           <motion.span
             animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.4 }}
             className="block w-6 h-0.5 bg-emerald-400 origin-center"
           />
         </button>
@@ -73,7 +73,7 @@ const Navbar = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
               className="absolute overflow-hidden top-18 right-0 w-full bg-mist-800 z-50"
             >
               {links.map((link, i) => (
@@ -81,7 +81,8 @@ const Navbar = () => {
                   key={link.href}
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.06 }}
+                  transition={{ delay: i * 0.15, duration: 0.5 }}
+                  className="last:border-b-2 last:border-emerald-400 "
                 >
                   <a
                     href={link.href}

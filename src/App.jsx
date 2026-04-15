@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -8,6 +8,7 @@ import "./index.css";
 import Navbar from "./components/Navbar";
 
 const App = () => {
+  const [isMeditating, setIsMeditating] = useState(false);
   return (
     <>
       <Navbar />

@@ -21,4 +21,5 @@
   --font-default: "Inter", sans-serif;
   --font-heading: "Playfair Display", serif;
   --text-shadow-custom: 0 0 6px rgb(var(--emerald-600));
+  --shadow-custom: 0 0 100px rgb(var(--emerald-600));
 }

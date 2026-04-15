@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
   return (
-    <div className="flex h-screen flex-col items-center justify-center text-center bg-mist-700 px-7">
+    <div className="flex h-screen flex-col items-center justify-center text-center bg-mist-800 px-7">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -35,6 +38,7 @@ const Hero = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 2, ease: "easeIn" }}
         className="button mt-6 px-6 py-3 bg-emerald-400 text-neutral-900 rounded-lg hover:bg-emerald-600 transition-all duration-400 cursor-pointer active:bg-emerald-700 active:scale-95 active:outline-none focus:outline-none focus:ring-3 focus:ring-emerald-600"
+        onClick={() => navigate("/meditate")}
       >
         Clear Your Mind
       </motion.a>
