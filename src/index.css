@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    @apply bg-mist-800 text-mist-300;
+    @apply font-default;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+    @apply text-emerald-400;
+    @apply tracking-wider;
+  }
+}
+
+@theme {
+  --font-default: "Inter", sans-serif;
+  --font-heading: "Playfair Display", serif;
+  --text-shadow-custom: 0 0 6px rgb(var(--emerald-600));
+}
