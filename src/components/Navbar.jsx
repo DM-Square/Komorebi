@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+//eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
 
 const links = [
@@ -26,7 +27,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="navbar select-none flex fixed md:absolute w-full items-center justify-between p-4 bg-mist-800"
+      className={`${isOpen ? "bg-mist-700" : ""} md:bg-transparent navbar select-none flex fixed md:absolute w-full items-center justify-between p-4 bg-mist-800 z-50`}
       ref={ref}
     >
       <img src="" alt="Komorebi Logo" className="flex px-3" />

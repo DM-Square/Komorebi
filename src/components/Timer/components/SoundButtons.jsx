@@ -1,7 +1,12 @@
 import React from "react";
+//eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 
-const SoundButtons = ({ ambienceSounds, selectedSound, isActive, onSoundToggle }) => {
+const SoundButtons = ({
+  ambienceSounds,
+  isActive,
+  onSoundToggle,
+}) => {
   return (
     <div className="mb-6">
       {ambienceSounds.map((sound) => (

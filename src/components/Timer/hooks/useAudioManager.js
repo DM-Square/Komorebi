@@ -1,9 +1,45 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+
+const AMBIENCE_SOUNDS = [
+  { label: "Forest", src: "/src/assets/sounds/forest.mp3" },
+  { label: "Rain", src: "/src/assets/sounds/rain.mp3" },
+  { label: "Waves", src: "/src/assets/sounds/waves.mp3" },
+];
 
 export const useAudioManager = () => {
   const [selectedSound, setSelectedSound] = useState(null);
   const audioRef = useRef(null);
   const fadeIntervalRef = useRef(null);
+  const preloadedAudios = useRef({});
+  const bellAudioRef = useRef(null);
+
+  // Precaricare i suoni al mount
+  useEffect(() => {
+    const audios = {};
+    AMBIENCE_SOUNDS.forEach((sound) => {
+      const audio = new Audio(sound.src);
+      audio.volume = 0;
+      audio.loop = true;
+      audios[sound.src] = audio;
+    });
+    preloadedAudios.current = audios;
+
+    // Carica il suono della bell
+    const bellAudio = new Audio("/src/assets/sounds/bell.mp3");
+    bellAudio.volume = 1;
+    bellAudioRef.current = bellAudio;
+
+    return () => {
+      Object.values(audios).forEach((audio) => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+      if (bellAudioRef.current) {
+        bellAudioRef.current.pause();
+        bellAudioRef.current.currentTime = 0;
+      }
+    };
+  }, []);
 
   const stopAmbienceSound = useCallback(() => {
     if (fadeIntervalRef.current) {
@@ -20,9 +56,12 @@ export const useAudioManager = () => {
   const setAmbienceSound = useCallback((src, isActive) => {
     if (isActive) return;
     stopAmbienceSound();
-    audioRef.current = new Audio(src);
-    audioRef.current.volume = 0;
-    audioRef.current.loop = true;
+
+    // Usa l'audio precaricato
+    audioRef.current = preloadedAudios.current[src];
+    if (!audioRef.current) return;
+
+    audioRef.current.currentTime = 0;
     audioRef.current.play();
 
     // Fade in del volume
@@ -44,10 +83,18 @@ export const useAudioManager = () => {
     stopAmbienceSound();
   }, [stopAmbienceSound]);
 
+  const playBellSound = useCallback(() => {
+    if (bellAudioRef.current) {
+      bellAudioRef.current.currentTime = 0;
+      bellAudioRef.current.play();
+    }
+  }, []);
+
   return {
     selectedSound,
     setAmbienceSound,
     stopAmbienceSound,
     cleanup,
+    playBellSound,
   };
 };
