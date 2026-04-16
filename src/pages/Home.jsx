@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const Home = () => {
   return (
-    <div>
+    <div className="select-none">
       <Hero />
       <div className="flex flex-col flex-wrap justify-center items-center md:flex-row">
         <Cards />

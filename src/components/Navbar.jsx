@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <div
-      className="flex fixed md:absolute w-full items-center justify-between p-4 bg-mist-800"
+      className="navbar select-none flex fixed md:absolute w-full items-center justify-between p-4 bg-mist-800"
       ref={ref}
     >
       <img src="" alt="Komorebi Logo" className="flex px-3" />
