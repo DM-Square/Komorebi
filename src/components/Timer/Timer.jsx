@@ -7,6 +7,7 @@ import SoundButtons from "./components/SoundButtons";
 import TimerDisplay from "./components/TimerDisplay";
 import ControlButtons from "./components/ControlButtons";
 import PresetButtons from "./components/PresetButtons";
+import { ASSETS } from "../../constants/theme";
 
 const Timer = () => {
   const {
@@ -30,9 +31,9 @@ const Timer = () => {
 
   const presetTimers = [3000, 6000, 18000]; // 5 min, 10 min, 30 min
   const ambienceSounds = [
-    { label: "Forest", src: "/src/assets/sounds/forest.mp3" },
-    { label: "Rain", src: "/src/assets/sounds/rain.mp3" },
-    { label: "Waves", src: "/src/assets/sounds/waves.mp3" },
+    { label: "Forest", src: ASSETS.sounds.forest },
+    { label: "Rain", src: ASSETS.sounds.rain },
+    { label: "Waves", src: ASSETS.sounds.waves },
   ];
 
   const handleSoundToggle = (src) => {
