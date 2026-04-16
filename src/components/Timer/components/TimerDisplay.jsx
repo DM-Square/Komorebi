@@ -10,7 +10,7 @@ const TimerDisplay = ({ timerDisplay, isActive, onIncrement, onDecrement }) => {
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn" }}
           onClick={onDecrement}
           disabled={isActive}
           className={`${isActive ? "text-transparent cursor-default" : "text-emerald-400 hover:text-emerald-300 cursor-pointer"} text-3xl transition-colors duration-200`}
@@ -20,7 +20,7 @@ const TimerDisplay = ({ timerDisplay, isActive, onIncrement, onDecrement }) => {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn" }}
           className="text-4xl font-mono text-mist-300"
         >
           {timerDisplay()}
@@ -28,7 +28,7 @@ const TimerDisplay = ({ timerDisplay, isActive, onIncrement, onDecrement }) => {
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 2, ease: "easeIn" }}
+          transition={{ duration: 1, ease: "easeIn" }}
           onClick={onIncrement}
           disabled={isActive}
           className={`${isActive ? "text-transparent cursor-default" : "text-emerald-400 hover:text-emerald-300 cursor-pointer"} text-3xl transition-colors duration-200`}
