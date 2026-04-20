@@ -37,7 +37,7 @@ describe("validateMinuteInput", () => {
 });
 
 describe("clampMinutes", () => {
-  it("clampa correttamente ai limiti", () => {
+  it("clampa i valori correttamente ai limiti", () => {
     expect(clampMinutes(45)).toBe(45);
     expect(clampMinutes(100)).toBe(90);
     expect(clampMinutes(-5)).toBe(0);
