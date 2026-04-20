@@ -1,14 +1,18 @@
 import React from "react";
 import Button from "../../ui/Button";
+import { useTimerContext } from "../../../context/useTimerContext";
+import { AMBIENCE_SOUNDS } from "../../../constants/theme";
 
-const SoundButtons = ({ ambienceSounds, isActive, selectedSound, onSoundToggle }) => {
+const SoundButtons = () => {
+  const { isActive, selectedSound, handleSoundToggle } = useTimerContext();
+
   return (
     <div className="mb-2">
-      {ambienceSounds.map((sound) => (
+      {AMBIENCE_SOUNDS.map((sound) => (
         <Button
           key={sound.src}
           variant="sound"
-          onClick={() => onSoundToggle(sound.src)}
+          onClick={() => handleSoundToggle(sound.src)}
           disabled={isActive}
           animated
           className={
