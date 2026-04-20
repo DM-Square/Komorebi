@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
+import { Link } from "react-router-dom";
 import { COLORS } from "../../constants/theme";
 import RotatingLogo from "./RotatingLogo";
 
@@ -36,9 +37,9 @@ const Navbar = () => {
       {/* Nav desktop */}
       <nav className="hidden md:flex md:justify-end md:px-3 space-x-4 py-2">
         {links.map((link) => (
-          <a key={link.href} href={link.href} className={linkClass}>
+          <Link key={link.href} to={link.href} className={linkClass}>
             {link.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
@@ -86,13 +87,13 @@ const Navbar = () => {
                   transition={{ delay: i * 0.15, duration: 0.5 }}
                   className="last:border-b-2 last:border-emerald-400 "
                 >
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className={`block px-6 py-3 text-md text-right bg-mist-800 ${linkClass}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </motion.ul>

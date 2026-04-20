@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaTree, FaCloudRain, FaWater } from "react-icons/fa";
 import Hero from "../components/layout/Hero";
 import Card from "../components/ui/Card";
@@ -65,15 +66,15 @@ const Home = () => {
         <p className={TYPOGRAPHY.subheading}>
           Want to know more about the Komorebi project?
         </p>
-        <a
-          href="/about"
+        <Link
+          to="/about"
           style={{
             animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
           }}
           className={`text-lg mt-6 ${BUTTON_STYLES.primary}`}
         >
           About Komorebi
-        </a>
+        </Link>
       </div>
 
       <Footer />

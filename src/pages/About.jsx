@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FaTree, FaLeaf, FaSun } from "react-icons/fa";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
@@ -132,15 +133,15 @@ const About = () => {
             Experience the peace of komorebi through mindful meditation. Let the
             light filter through your body, one breath at a time.
           </p>
-          <a
-            href="/meditate"
+          <Link
+            to="/meditate"
             className={BUTTON_STYLES.secondary}
             style={{
               animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
             }}
           >
             Start Meditating
-          </a>
+          </Link>
         </motion.div>
         <Footer />
       </div>
