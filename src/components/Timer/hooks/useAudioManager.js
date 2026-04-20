@@ -1,11 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { ASSETS } from "../../../constants/theme";
-
-const AMBIENCE_SOUNDS = [
-  { label: "Forest", src: ASSETS.sounds.forest },
-  { label: "Rain", src: ASSETS.sounds.rain },
-  { label: "Waves", src: ASSETS.sounds.waves },
-];
+import { ASSETS, AMBIENCE_SOUNDS } from "../../../constants/theme";
 
 export const useAudioManager = () => {
   const [selectedSound, setSelectedSound] = useState(null);
