@@ -1,23 +1,22 @@
 import React from "react";
-//eslint-disable-next-line no-unused-vars
-import { motion } from "motion/react";
+import Button from "../../Button";
 
-const SoundButtons = ({ ambienceSounds, isActive, onSoundToggle }) => {
+const SoundButtons = ({ ambienceSounds, isActive, selectedSound, onSoundToggle }) => {
   return (
-    <div className="mb-6">
+    <div className="mb-2">
       {ambienceSounds.map((sound) => (
-        <motion.button
-          radioGroup="ambience"
+        <Button
           key={sound.src}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeIn" }}
-          className={`${isActive ? "bg-transparent disabled:cursor-default border-none text-transparent hover:bg-transparent active:bg-transparent" : ""} px-3 py-2 bg-transparent border-2 border-emerald-400 text-emerald-400 rounded-lg hover:bg-emerald-600 transition-all duration-400 cursor-pointer active:bg-emerald-700 active:scale-95 active:outline-none focus:outline-none focus:ring-5 focus:ring-emerald-800 mx-2 hover:text-mist-800`}
-          disabled={isActive}
+          variant="sound"
           onClick={() => onSoundToggle(sound.src)}
+          disabled={isActive}
+          animated
+          className={
+            sound.src === selectedSound ? "ring-2 ring-emerald-200 shadow-lg shadow-emerald-500/50" : ""
+          }
         >
           {sound.label}
-        </motion.button>
+        </Button>
       ))}
     </div>
   );

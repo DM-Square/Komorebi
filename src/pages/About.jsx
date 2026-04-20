@@ -4,10 +4,11 @@ import { FaTree, FaLeaf, FaSun } from "react-icons/fa";
 import { motion } from "motion/react";
 import Footer from "../components/Footer";
 import WaveBackground from "../components/WaveBackground";
+import { TIMINGS, BUTTON_STYLES, COLORS } from "../constants/theme";
 
 const komorebiContent = [
   {
-    icon: <FaTree className="w-16 h-16 text-emerald-400" />,
+    icon: <FaTree className={`w-16 h-16 text-${COLORS.primary}`} />,
     title: "木 Ko - The Tree",
     description:
       'In Japanese, "ko" (木) represents the tree, nature\'s vessel of life and wisdom. It symbolizes growth, strength, and the foundation of our meditation practice. Like a tree rooted in earth, we ground ourselves in the present moment.',
@@ -16,19 +17,19 @@ const komorebiContent = [
     glowColor: "rgba(16, 185, 129, 0.6)",
   },
   {
-    icon: <FaLeaf className="w-16 h-16 text-emerald-400" />,
+    icon: <FaLeaf className={`w-16 h-16 text-${COLORS.primary}`} />,
     title: "漏れ More - The Leaking Light",
     description:
-      'More (漏れ) means "leaking" or "shining through". It represents the gentle filtering of light through leaves, a perfect metaphor for awareness seeping through the gaps in our mind. It\'s the moment when clarity breaks through the fog of daily life.',
+      '"More" (漏れ) means "leaking" or "shining through". It represents the gentle filtering of light through leaves, a perfect metaphor for awareness seeping through the gaps in our mind. It\'s the moment when clarity breaks through the fog of daily life.',
     gradient:
       "radial-gradient(circle at center, rgba(254, 243, 199, 0.15) 0%, rgba(24, 59, 50, 0) 70%)",
     glowColor: "rgba(254, 243, 199, 0.6)",
   },
   {
-    icon: <FaSun className="w-16 h-16 text-emerald-400" />,
+    icon: <FaSun className={`w-16 h-16 text-${COLORS.primary}`} />,
     title: "日 Bi - The Sun",
     description:
-      "Bi (日) is the sun, the source of all life and energy. It symbolizes enlightenment, warmth, and the inner light we discover through meditation. Together, komorebi represents the beautiful interplay of shadow and light, reminding us that peace exists in balance.",
+      '"Bi" (日) is the sun, the source of all life and energy. It symbolizes enlightenment, warmth, and the inner light we discover through meditation. Together, komorebi represents the beautiful interplay of shadow and light, reminding us that peace exists in balance.',
     gradient:
       "radial-gradient(circle at center, rgba(250, 204, 21, 0.12) 0%, rgba(24, 59, 50, 0) 70%)",
     glowColor: "rgba(250, 204, 21, 0.6)",
@@ -38,11 +39,10 @@ const komorebiContent = [
 const About = () => {
   return (
     <div className="snap-y snap-mandatory overflow-y-scroll h-screen bg-mist-800">
-      {/* Header Card */}
+      {/* Card Header */}
       <div className="h-screen snap-start flex flex-col items-center justify-center text-center bg-mist-800 px-7 relative overflow-hidden">
         <WaveBackground />
 
-        {/* Content */}
         <div className="relative z-10">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -50,25 +50,25 @@ const About = () => {
             transition={{ duration: 1 }}
             viewport={{ once: false }}
           >
-          <motion.h1
-            className="text-6xl font-bold text-emerald-400 mb-6"
-            style={{
-              textShadow: "0 0 0px rgba(16, 185, 129, 0.5)",
-              animation: "glow 3s ease-in-out infinite",
-            }}
-          >
-            About the Project
-          </motion.h1>
-          <p className="text-xl text-mist-300 max-w-2xl">
-            The beauty of sunlight filtering through tree leaves. Komorebi
-            (木漏れ日) is a Japanese concept that embodies the essence of our
-            meditation app.
-          </p>
+            <motion.h1
+              className="text-6xl font-bold text-emerald-400 mb-6"
+              style={{
+                textShadow: "0 0 0px rgba(16, 185, 129, 0.5)",
+                animation: `glow ${TIMINGS.glow} ease-in-out infinite`,
+              }}
+            >
+              About the Project
+            </motion.h1>
+            <p className="text-xl text-mist-300 max-w-2xl">
+              The beauty of sunlight filtering through tree leaves. Komorebi
+              (木漏れ日) is a Japanese concept that embodies the essence of our
+              meditation app.
+            </p>
           </motion.div>
         </div>
       </div>
 
-      {/* Three Content Cards */}
+      {/* Card su Komorebi */}
       {komorebiContent.map((content, index) => (
         <div
           key={index}
@@ -95,7 +95,7 @@ const About = () => {
             <motion.h2
               className="text-5xl font-bold text-emerald-400 mb-6"
               style={{
-                animation: "glow 3s ease-in-out infinite",
+                animation: `glow ${TIMINGS.glow} ease-in-out infinite`,
                 textShadow: `0 0 0px ${content.glowColor}`,
               }}
             >
@@ -108,7 +108,7 @@ const About = () => {
         </div>
       ))}
 
-      {/* Footer Section */}
+      {/* Footer */}
       <div className="h-screen snap-start flex flex-col items-center justify-center text-center bg-mist-800 px-7 relative">
         <div
           className="absolute inset-0 pointer-events-none"
@@ -134,8 +134,10 @@ const About = () => {
           </p>
           <a
             href="/meditate"
-            className="px-8 py-4 bg-emerald-400 text-mist-800 rounded-lg hover:bg-emerald-600 transition-all duration-400 font-semibold text-lg inline-block"
-            style={{ animation: "pulse-button 2s ease-in-out infinite" }}
+            className={BUTTON_STYLES.secondary}
+            style={{
+              animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
+            }}
           >
             Start Meditating
           </a>

@@ -1,9 +1,10 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { ASSETS } from "../../../constants/theme";
 
 const AMBIENCE_SOUNDS = [
-  { label: "Forest", src: "/src/assets/sounds/forest.mp3" },
-  { label: "Rain", src: "/src/assets/sounds/rain.mp3" },
-  { label: "Waves", src: "/src/assets/sounds/waves.mp3" },
+  { label: "Forest", src: ASSETS.sounds.forest },
+  { label: "Rain", src: ASSETS.sounds.rain },
+  { label: "Waves", src: ASSETS.sounds.waves },
 ];
 
 export const useAudioManager = () => {
@@ -25,7 +26,7 @@ export const useAudioManager = () => {
     preloadedAudios.current = audios;
 
     // Carica il suono della bell
-    const bellAudio = new Audio("/src/assets/sounds/bell.mp3");
+    const bellAudio = new Audio(ASSETS.sounds.bell);
     bellAudio.volume = 1;
     bellAudioRef.current = bellAudio;
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
-import { ASSETS } from "../constants/theme";
+import { COLORS } from "../constants/theme";
+import RotatingLogo from "./RotatingLogo";
 
 const links = [
   { label: "Home", href: "/" },
@@ -10,14 +11,11 @@ const links = [
 ];
 
 const linkClass =
-  "hover:text-emerald-400 px-2 transition-all duration-400 focus:outline-none focus:text-emerald-600 focus:text-shadow-sm focus:text-shadow-emerald-900";
+  `hover:text-${COLORS.primary} px-2 transition-all duration-400 focus:outline-none focus:text-${COLORS.primaryHover} focus:text-shadow-sm focus:text-shadow-emerald-900`;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [logoIndex, setLogoIndex] = useState(0);
   const ref = useRef(null);
-
-  const logos = [ASSETS.img.komorebiLogo, ASSETS.img.komorebiLogoJp];
 
   useEffect(() => {
     const handler = (e) => {
@@ -29,28 +27,12 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLogoIndex((prev) => (prev + 1) % logos.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, [logos.length]);
-
   return (
     <div
       className={`${isOpen ? "bg-mist-700" : ""} md:bg-transparent navbar select-none flex fixed md:absolute w-full items-center justify-between p-4 bg-mist-800 z-50`}
       ref={ref}
     >
-      <motion.img
-        key={logoIndex}
-        src={logos[logoIndex]}
-        alt="Komorebi Logo"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 3.5 }}
-        className="flex px-3 object-contain w-30 h-10 md:w-40"
-      />
+      <RotatingLogo />
 
       {/* Nav desktop */}
       <nav className="hidden md:flex md:justify-end md:px-3 space-x-4 py-2">
@@ -65,26 +47,26 @@ const Navbar = () => {
       <div className="md:hidden ">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className={`flex flex-col justify-center items-center w-10 h-10 gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-400 rounded transition-all duration-400 ${isOpen ? "focus:ring-mist-800" : ""}`}
+          className={`flex flex-col justify-center items-center w-10 h-10 gap-1.5 cursor-pointer focus:outline-none focus:ring-2 focus:ring-${COLORS.primary} rounded transition-all duration-400 ${isOpen ? "focus:ring-mist-800" : ""}`}
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
           <motion.span
             animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="block w-6 h-0.5 bg-emerald-400 origin-center"
+            className={`block w-6 h-0.5 bg-${COLORS.primary} origin-center`}
           />
           <motion.span
             animate={
               isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
             }
             transition={{ duration: 0.2 }}
-            className="block w-6 h-0.5 bg-emerald-400"
+            className={`block w-6 h-0.5 bg-${COLORS.primary}`}
           />
           <motion.span
             animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="block w-6 h-0.5 bg-emerald-400 origin-center"
+            className={`block w-6 h-0.5 bg-${COLORS.primary} origin-center`}
           />
         </button>
 

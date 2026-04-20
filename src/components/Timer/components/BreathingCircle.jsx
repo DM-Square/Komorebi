@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { BREATHING_CYCLES, BREATHING_CIRCLE } from "../../../constants/theme";
 
 const BreathingCircle = ({ isActive }) => {
   const [phase, setPhase] = useState("inhale");
@@ -11,10 +12,10 @@ const BreathingCircle = ({ isActive }) => {
     const startTime = Date.now();
 
     const updatePhase = () => {
-      const elapsed = (Date.now() - startTime) % 19000; // 19 secondi in ms
+      const elapsed = (Date.now() - startTime) % BREATHING_CYCLES.totalDuration;
 
-      if (elapsed < 4000) setPhase("inhale");
-      else if (elapsed < 11000) setPhase("hold");
+      if (elapsed < BREATHING_CYCLES.inhaleDuration) setPhase("inhale");
+      else if (elapsed < BREATHING_CYCLES.holdEndTime) setPhase("hold");
       else setPhase("exhale");
 
       requestAnimationFrame(updatePhase);
@@ -28,39 +29,39 @@ const BreathingCircle = ({ isActive }) => {
 
   // Animazione 4-7-8: inhale 4s, hold 7s, exhale 8s
   const breathingAnimation = {
-    scale: [1, 1.5, 1.5, 1],
-    opacity: [0.3, 0.8, 0.6, 0.3],
+    scale: BREATHING_CYCLES.scale,
+    opacity: BREATHING_CYCLES.opacity,
     transition: {
-      duration: 19,
+      duration: BREATHING_CYCLES.totalDuration / 1000,
       repeat: Infinity,
       ease: "easeInOut",
-      times: [0, 4 / 19, 11 / 19, 1],
+      times: [0, BREATHING_CYCLES.inhalePercent, BREATHING_CYCLES.holdPercent, 1],
     },
   };
 
   return (
-    <div className="flex flex-col items-center gap-6 mt-8 mb-8">
+    <div className={BREATHING_CIRCLE.gap}>
       <motion.div
-        className="w-32 h-32 rounded-full border-4 border-emerald-400 bg-emerald-400 bg-opacity-10"
+        className={BREATHING_CIRCLE.container}
         animate={breathingAnimation}
       />
-      <div className="relative h-8">
+      <div className={BREATHING_CIRCLE.labelContainer}>
         <motion.p
-          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2"
+          className={BREATHING_CIRCLE.label}
           animate={{ opacity: phase === "inhale" ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           Inhale
         </motion.p>
         <motion.p
-          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2"
+          className={BREATHING_CIRCLE.label}
           animate={{ opacity: phase === "hold" ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           Hold
         </motion.p>
         <motion.p
-          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2"
+          className={BREATHING_CIRCLE.label}
           animate={{ opacity: phase === "exhale" ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >

@@ -1,6 +1,7 @@
 import React from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { CONTROL_BUTTON_STYLES } from "../../../constants/theme";
 
 const ControlButtons = ({
   timer,
@@ -9,6 +10,28 @@ const ControlButtons = ({
   onStartPause,
   onReset,
 }) => {
+  const isDisabled = timer <= 0 || !selectedSound;
+  const isResetDisabled = isActive || (timer <= 0 && !selectedSound);
+
+  const getStartPauseClass = () => {
+    const { base, enabled, disabled } = CONTROL_BUTTON_STYLES.startPause;
+    const state = isDisabled ? disabled : enabled;
+    return `${base} ${state}`;
+  };
+
+  const getResetClass = () => {
+    const { enabled, disabled } = CONTROL_BUTTON_STYLES.reset;
+    let classes = enabled;
+    if (isResetDisabled) classes += ` ${disabled}`;
+    return classes;
+  };
+
+  const getStartPauseLabel = () => {
+    if (isActive) return "Pause";
+    if (timer > 0) return selectedSound ? "Meditate" : "Select Sound";
+    return "Select Timer";
+  };
+
   return (
     <>
       <motion.button
@@ -16,25 +39,19 @@ const ControlButtons = ({
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeIn" }}
         onClick={onStartPause}
-        className={`px-6 py-3 bg-emerald-400 text-mist-800 rounded-lg hover:bg-emerald-600 transition-all duration-400 cursor-pointer active:bg-emerald-700 active:scale-95 active:outline-none focus:outline-none focus:ring-3 focus:ring-emerald-600 ${timer <= 0 ? "bg-transparent border-emerald-600 border-2 disabled:text-emerald-600 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:border-emerald-500 disabled:hover:text-emerald-500" : ""} `}
-        disabled={timer <= 0 || !selectedSound}
+        className={getStartPauseClass()}
+        disabled={isDisabled}
       >
-        {isActive
-          ? "Pause"
-          : timer > 0
-            ? selectedSound
-              ? "Meditate"
-              : "Select Sound"
-            : "Select Timer"}
+        {getStartPauseLabel()}
       </motion.button>
       <div className="">
         <motion.button
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, ease: "easeIn" }}
+          animate={{ opacity: isActive ? 0 : 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
           onClick={onReset}
-          className={`${isActive ? "bg-transparent disabled:cursor-default text-transparent hover:bg-transparent active:bg-transparent" : ""}  px-4 py-2 bg-emerald-700 text-mist-800 rounded-lg hover:bg-emerald-600 transition-all duration-400 cursor-pointer active:bg-emerald-700 active:scale-95 active:outline-none focus:outline-none focus:ring-3 focus:ring-emerald-600 mt-4 ${timer <= 0 && !selectedSound ? "bg-transparent border-emerald-600 border-2 disabled:text-emerald-600 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:border-emerald-500 disabled:hover:text-emerald-500" : ""} `}
-          disabled={isActive || (timer <= 0 && !selectedSound)}
+          className={getResetClass()}
+          disabled={isResetDisabled}
         >
           Reset
         </motion.button>

@@ -8,8 +8,6 @@ const Meditate = () => {
     <>
       <div className="flex h-fit flex-col items-center justify-center text-center bg-mist-800 px-7 relative overflow-hidden">
         <WaveBackground />
-
-        {/* Content */}
         <div className="relative z-10">
           <Timer />
           <Footer />

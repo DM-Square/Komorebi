@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Stili base   */
+
+@theme {
+  --font-default: "Inter", sans-serif;
+  --font-heading: "Playfair Display", serif;
+  --text-shadow-custom: 0 0 6px rgb(var(--emerald-600));
+  --shadow-custom: 0 0 100px rgb(var(--emerald-600));
+}
+
 @layer base {
   body {
     @apply bg-mist-800 text-mist-300;
@@ -17,32 +26,18 @@
   }
 }
 
-@theme {
-  --font-default: "Inter", sans-serif;
-  --font-heading: "Playfair Display", serif;
-  --text-shadow-custom: 0 0 6px rgb(var(--emerald-600));
-  --shadow-custom: 0 0 100px rgb(var(--emerald-600));
-}
+/* Meditate attivo */
 
-.is-meditating .navbar {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s;
-}
-
-.is-meditating .footer {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s;
-}
-
+.is-meditating .navbar,
+.is-meditating .footer,
 .is-meditating .waves {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s;
 }
 
-/* Custom scrollbar */
+/* Scrollbar custom */
+
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -61,13 +56,13 @@
   background: rgb(16, 185, 129);
 }
 
-/* Firefox */
 * {
   scrollbar-color: rgb(52, 211, 153) transparent;
   scrollbar-width: thin;
 }
 
-/* Glow animation for hero title */
+/* Animazioni pulse, glow e background */
+
 @keyframes glow {
   0%,
   100% {
@@ -82,7 +77,6 @@
   }
 }
 
-/* Pulse animation for buttons */
 @keyframes pulse-button {
   0%,
   100% {
@@ -93,7 +87,6 @@
   }
 }
 
-/* Wave animations for background */
 @keyframes wave1 {
   0%,
   100% {
@@ -121,33 +114,5 @@
   }
   50% {
     transform: translateY(25px);
-  }
-}
-
-/* Reverse wave animations (bottom to top) */
-@keyframes wave1-reverse {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-@keyframes wave2-reverse {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-15px);
-  }
-}
-
-@keyframes wave3-reverse {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-25px);
   }
 }
