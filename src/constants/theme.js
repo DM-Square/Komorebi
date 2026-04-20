@@ -35,7 +35,7 @@ export const WAVE_OPACITY = {
 // Breathing Circle
 export const BREATHING_CIRCLE = {
   container:
-    "w-32 h-32 rounded-full border-4 border-emerald-400 bg-emerald-400 bg-opacity-10",
+    "w-32 h-32 mt-4 rounded-full border-4 border-emerald-400 bg-emerald-400 bg-opacity-10",
   label:
     "text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2",
   labelContainer: "relative h-8",
@@ -50,7 +50,7 @@ export const BREATHING_CYCLES = {
   inhalePercent: 4 / 19,
   holdPercent: 11 / 19,
   scale: [0.8, 1.25, 1.25, 0.8],
-  opacity: [0.3, 0.8, 0.6, 0.3],
+  opacity: [0.3, 0.8, 0.55, 0.3],
 };
 
 // Typography
@@ -112,6 +112,13 @@ export const CONTROL_BUTTON_STYLES = {
       "bg-transparent border-emerald-600 border-2 disabled:text-emerald-600 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:border-emerald-500 disabled:hover:text-emerald-500",
   },
 };
+
+// Suoni ambientali
+export const AMBIENCE_SOUNDS = [
+  { label: "Forest", src: "/src/assets/sounds/forest.mp3" },
+  { label: "Rain", src: "/src/assets/sounds/rain.mp3" },
+  { label: "Waves", src: "/src/assets/sounds/waves.mp3" },
+];
 
 // Asset Paths
 export const ASSETS = {
