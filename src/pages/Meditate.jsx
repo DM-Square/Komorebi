@@ -6,7 +6,7 @@ import WaveBackground from "../components/WaveBackground";
 const Meditate = () => {
   return (
     <>
-      <div className="flex h-screen flex-col items-center justify-center text-center bg-mist-800 px-7 relative overflow-hidden">
+      <div className="flex h-fit flex-col items-center justify-center text-center bg-mist-800 px-7 relative overflow-hidden">
         <WaveBackground />
 
         {/* Content */}

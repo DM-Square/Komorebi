@@ -13,9 +13,9 @@ const TimerDisplay = ({ timerDisplay, isActive, onIncrement, onDecrement }) => {
           transition={{ duration: 1, ease: "easeIn" }}
           onClick={onDecrement}
           disabled={isActive}
-          className={`${isActive ? "text-transparent cursor-default" : "text-emerald-400 hover:text-emerald-300 cursor-pointer"} text-3xl transition-colors duration-200`}
+          className={`${isActive ? "text-transparent cursor-default" : "text-emerald-400 hover:text-emerald-300 cursor-pointer"} text-5xl transition-colors duration-200`}
         >
-          ↓
+          -
         </motion.button>
         <motion.p
           initial={{ opacity: 0 }}
@@ -31,9 +31,9 @@ const TimerDisplay = ({ timerDisplay, isActive, onIncrement, onDecrement }) => {
           transition={{ duration: 1, ease: "easeIn" }}
           onClick={onIncrement}
           disabled={isActive}
-          className={`${isActive ? "text-transparent cursor-default" : "text-emerald-400 hover:text-emerald-300 cursor-pointer"} text-3xl transition-colors duration-200`}
+          className={`${isActive ? "text-transparent cursor-default" : "text-emerald-400 hover:text-emerald-300 cursor-pointer"} text-4xl transition-colors duration-200`}
         >
-          ↑
+          +
         </motion.button>
       </div>
       <BreathingCircle isActive={isActive} />

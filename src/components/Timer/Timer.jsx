@@ -91,12 +91,12 @@ const Timer = () => {
   }, [cleanupTimer, cleanupAudio]);
 
   return (
-    <div className="flex select-none mt-3 h-screen flex-col items-center justify-center text-center bg-transparent px-7">
+    <div className="flex select-none h-screen flex-col items-center justify-center text-center bg-transparent">
       <motion.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "linear" }}
-        className={`text-4xl text-emerald-400 font-bold mb-4 ${isActive ? "text-transparent" : ""}`}
+        className={`text-5xl mt-3 text-emerald-400 font-bold mb-4 ${isActive ? "text-transparent" : ""}`}
       >
         Meditate
       </motion.h1>
@@ -104,7 +104,7 @@ const Timer = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "linear" }}
-        className={`text-lg text-mist-300 mb-6 ${isActive ? "text-transparent" : ""}`}
+        className={`text-xl text-mist-300 mb-6 ${isActive ? "text-transparent" : ""}`}
       >
         Choose an ambience sound, set a timer, and begin your meditation.
       </motion.p>

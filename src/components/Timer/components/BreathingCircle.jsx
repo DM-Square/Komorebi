@@ -28,12 +28,13 @@ const BreathingCircle = ({ isActive }) => {
 
   // Animazione 4-7-8: inhale 4s, hold 7s, exhale 8s
   const breathingAnimation = {
-    scale: [1, 1.3, 1.3, 1],
+    scale: [1, 1.5, 1.5, 1],
     opacity: [0.3, 0.8, 0.6, 0.3],
     transition: {
       duration: 19,
       repeat: Infinity,
       ease: "easeInOut",
+      times: [0, 4 / 19, 11 / 19, 1],
     },
   };
 
@@ -45,21 +46,21 @@ const BreathingCircle = ({ isActive }) => {
       />
       <div className="relative h-8">
         <motion.p
-          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-0"
+          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2"
           animate={{ opacity: phase === "inhale" ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           Inhale
         </motion.p>
         <motion.p
-          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-0"
+          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2"
           animate={{ opacity: phase === "hold" ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >
           Hold
         </motion.p>
         <motion.p
-          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-0"
+          className="text-emerald-400 font-semibold text-lg absolute left-1/2 -translate-x-1/2 top-2"
           animate={{ opacity: phase === "exhale" ? 1 : 0 }}
           transition={{ duration: 0.3 }}
         >

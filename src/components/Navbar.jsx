@@ -49,7 +49,7 @@ const Navbar = () => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 3.5 }}
-        className="flex px-3 object-contain w-30 h-10"
+        className="flex px-3 object-contain w-30 h-10 md:w-40"
       />
 
       {/* Nav desktop */}
@@ -61,7 +61,7 @@ const Navbar = () => {
         ))}
       </nav>
 
-      {/* Hamburger — solo mobile */}
+      {/* Nav mobile */}
       <div className="md:hidden ">
         <button
           onClick={() => setIsOpen(!isOpen)}
