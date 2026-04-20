@@ -1,31 +1,15 @@
 import React, { useEffect } from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { useTimerOrchestration } from "./hooks/useTimerOrchestration";
 import SoundButtons from "./components/SoundButtons";
 import TimerDisplay from "./components/TimerDisplay";
+import TimerInput from "./components/TimerInput";
 import ControlButtons from "./components/ControlButtons";
-import { ASSETS, LAYOUTS } from "../../constants/theme";
+import { LAYOUTS } from "../../constants/theme";
+import { useTimerContext } from "../../context/useTimerContext";
 
 const Timer = () => {
-  const {
-    timer,
-    isActive,
-    timerDisplay,
-    selectedSound,
-    handleSoundToggle,
-    handleStartPause,
-    handleReset,
-    incrementTimer,
-    decrementTimer,
-    setPresetTimer,
-  } = useTimerOrchestration();
-
-  const ambienceSounds = [
-    { label: "Forest", src: ASSETS.sounds.forest },
-    { label: "Rain", src: ASSETS.sounds.rain },
-    { label: "Waves", src: ASSETS.sounds.waves },
-  ];
+  const { isActive } = useTimerContext();
 
   useEffect(() => {
     document.body.classList.toggle("is-meditating", isActive);
@@ -67,13 +51,7 @@ const Timer = () => {
       >
         {!isActive && (
           <>
-            <SoundButtons
-              ambienceSounds={ambienceSounds}
-              selectedSound={selectedSound}
-              isActive={isActive}
-              onSoundToggle={handleSoundToggle}
-            />
-
+            <SoundButtons />
             <motion.div
               animate={{ opacity: isActive ? 0 : 1 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -82,16 +60,11 @@ const Timer = () => {
           </>
         )}
 
-        <TimerDisplay
-          timerDisplay={timerDisplay}
-          isActive={isActive}
-          onIncrement={incrementTimer}
-          onDecrement={decrementTimer}
-          onSetTimer={setPresetTimer}
-        />
+        <TimerDisplay />
 
         {!isActive && (
           <>
+            <TimerInput />
             <motion.div
               animate={{ opacity: isActive ? 0 : 1 }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
@@ -101,13 +74,7 @@ const Timer = () => {
         )}
 
         <div className={isActive ? "mt-8" : ""}>
-          <ControlButtons
-            timer={timer}
-            isActive={isActive}
-            selectedSound={selectedSound}
-            onStartPause={handleStartPause}
-            onReset={handleReset}
-          />
+          <ControlButtons />
         </div>
       </motion.div>
     </div>
