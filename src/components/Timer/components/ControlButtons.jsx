@@ -2,14 +2,11 @@ import React from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { CONTROL_BUTTON_STYLES } from "../../../constants/theme";
+import { useTimerContext } from "../../../context/useTimerContext";
 
-const ControlButtons = ({
-  timer,
-  isActive,
-  selectedSound,
-  onStartPause,
-  onReset,
-}) => {
+const ControlButtons = () => {
+  const { timer, isActive, selectedSound, handleStartPause, handleReset } = useTimerContext();
+
   const isDisabled = timer <= 0 || !selectedSound;
   const isResetDisabled = isActive || (timer <= 0 && !selectedSound);
 
@@ -38,7 +35,7 @@ const ControlButtons = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, ease: "easeIn" }}
-        onClick={onStartPause}
+        onClick={handleStartPause}
         className={getStartPauseClass()}
         disabled={isDisabled}
       >
@@ -49,7 +46,7 @@ const ControlButtons = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: isActive ? 0 : 1 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
-          onClick={onReset}
+          onClick={handleReset}
           className={getResetClass()}
           disabled={isResetDisabled}
         >
