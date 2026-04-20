@@ -4,10 +4,12 @@ import { motion, AnimatePresence } from "motion/react";
 import { COLORS } from "../../constants/theme";
 import RotatingLogo from "./RotatingLogo";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const links = [
-  { label: "Home", href: "/#/" },
-  { label: "Meditate", href: "/#/meditate" },
-  { label: "About", href: "/#/about" },
+  { label: "Home", href: `${BASE_URL}#/` },
+  { label: "Meditate", href: `${BASE_URL}#/meditate` },
+  { label: "About", href: `${BASE_URL}#/about` },
 ];
 
 const linkClass = `hover:text-${COLORS.primary} px-2 transition-all duration-400 focus:outline-none focus:text-${COLORS.primaryHover} focus:text-shadow-sm focus:text-shadow-emerald-900`;

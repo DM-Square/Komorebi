@@ -5,6 +5,8 @@ import Card from "../components/ui/Card";
 import Footer from "../components/layout/Footer";
 import { COLORS, BUTTON_STYLES, TIMINGS, TYPOGRAPHY } from "../constants/theme";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const cardContent = [
   {
     icon: <FaTree className={`text-4xl text-${COLORS.textSecondary}`} />,
@@ -66,7 +68,7 @@ const Home = () => {
           Want to know more about the Komorebi project?
         </p>
         <a
-          href="/#/about"
+          href={`${BASE_URL}#/about`}
           style={{
             animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
           }}

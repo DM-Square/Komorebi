@@ -6,6 +6,8 @@ import Footer from "../components/layout/Footer";
 import WaveBackground from "../components/ui/WaveBackground";
 import { TIMINGS, BUTTON_STYLES, COLORS } from "../constants/theme";
 
+const BASE_URL = import.meta.env.BASE_URL;
+
 const komorebiContent = [
   {
     icon: <FaTree className={`w-16 h-16 text-${COLORS.primary}`} />,
@@ -133,7 +135,7 @@ const About = () => {
             light filter through your body, one breath at a time.
           </p>
           <a
-            href="/#/meditate"
+            href={`${BASE_URL}#/meditate`}
             className={BUTTON_STYLES.secondary}
             style={{
               animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
