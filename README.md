@@ -13,6 +13,21 @@ Una web app moderna per facilitare la meditazione consapevole, con timer program
 
 ---
 
+## 📋 Indice
+
+- [Funzionalità](#-funzionalità)
+- [Tech Stack](#-tech-stack)
+- [Prerequisiti](#-prerequisiti)
+- [Installazione](#-installazione)
+- [Come usare](#-come-usare)
+- [Architettura](#-architettura)
+- [Personalizzazione](#-personalizzazione)
+- [Comandi](#-comandi)
+- [Test](#-test)
+- [Autore](#-autore)
+
+---
+
 ## ✨ Funzionalità
 
 - **Timer programmabile** — Imposta i minuti tramite input
