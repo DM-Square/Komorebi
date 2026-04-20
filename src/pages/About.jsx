@@ -133,7 +133,7 @@ const About = () => {
             light filter through your body, one breath at a time.
           </p>
           <a
-            href="/meditate"
+            href="/#/meditate"
             className={BUTTON_STYLES.secondary}
             style={{
               animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,

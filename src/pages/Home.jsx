@@ -66,7 +66,7 @@ const Home = () => {
           Want to know more about the Komorebi project?
         </p>
         <a
-          href="/about"
+          href="/#/about"
           style={{
             animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
           }}
