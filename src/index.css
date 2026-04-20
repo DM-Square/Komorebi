@@ -26,6 +26,18 @@
   }
 }
 
+.nav-link {
+  @apply px-2 transition-all duration-400 focus:outline-none focus:text-shadow-sm focus:text-shadow-emerald-900;
+}
+
+.nav-link:hover {
+  color: rgb(16, 185, 129);
+}
+
+.nav-link:focus {
+  color: rgb(5, 150, 105);
+}
+
 /* Meditate attivo */
 
 .is-meditating .navbar,

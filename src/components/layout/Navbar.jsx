@@ -12,8 +12,6 @@ const links = [
   { label: "About", href: `${BASE_URL}#/about` },
 ];
 
-const linkClass = `hover:text-${COLORS.primary} px-2 transition-all duration-400 focus:outline-none focus:text-${COLORS.primaryHover} focus:text-shadow-sm focus:text-shadow-emerald-900`;
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef(null);
@@ -38,7 +36,7 @@ const Navbar = () => {
       {/* Nav desktop */}
       <nav className="hidden md:flex md:justify-end md:px-3 space-x-4 py-2">
         {links.map((link) => (
-          <a key={link.href} href={link.href} className={linkClass}>
+          <a key={link.href} href={link.href} className="nav-link">
             {link.label}
           </a>
         ))}
@@ -90,7 +88,7 @@ const Navbar = () => {
                 >
                   <a
                     href={link.href}
-                    className={`block px-6 py-3 text-md text-right bg-mist-800 ${linkClass}`}
+                    className={`block px-6 py-3 text-md text-right bg-mist-800 nav-link`}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
