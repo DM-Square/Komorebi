@@ -1,3 +1,6 @@
+// Base URL per i file pubblici
+const BASE_URL = import.meta.env.BASE_URL;
+
 // Colori - classi Tailwind CSS
 export const COLORS = {
   primary: "emerald-400",
@@ -113,26 +116,26 @@ export const CONTROL_BUTTON_STYLES = {
   },
 };
 
-// Suoni ambientali
-export const AMBIENCE_SOUNDS = [
-  { label: "Forest", src: "/src/assets/sounds/forest.mp3" },
-  { label: "Rain", src: "/src/assets/sounds/rain.mp3" },
-  { label: "Waves", src: "/src/assets/sounds/waves.mp3" },
-];
-
 // Asset Paths
 export const ASSETS = {
   sounds: {
-    forest: "/src/assets/sounds/forest.mp3",
-    rain: "/src/assets/sounds/rain.mp3",
-    waves: "/src/assets/sounds/waves.mp3",
-    bell: "/src/assets/sounds/bell.mp3",
+    forest: `${BASE_URL}assets/sounds/forest.mp3`,
+    rain: `${BASE_URL}assets/sounds/rain.mp3`,
+    waves: `${BASE_URL}assets/sounds/waves.mp3`,
+    bell: `${BASE_URL}assets/sounds/bell.mp3`,
   },
   img: {
-    komorebiLogo: "/src/assets/img/komorebi_logo.png",
-    komorebiLogoJp: "/src/assets/img/komorebi_logo_jp.png",
+    komorebiLogo: `${BASE_URL}assets/img/komorebi_logo.png`,
+    komorebiLogoJp: `${BASE_URL}assets/img/komorebi_logo_jp.png`,
   },
 };
+
+// Suoni ambientali
+export const AMBIENCE_SOUNDS = [
+  { label: "Forest", src: ASSETS.sounds.forest },
+  { label: "Rain", src: ASSETS.sounds.rain },
+  { label: "Waves", src: ASSETS.sounds.waves },
+];
 
 // Config delle waves
 export const WAVE_CONFIG = {
