@@ -2,8 +2,13 @@ import React from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import WaveBackground from "./WaveBackground";
-import { BUTTON_STYLES, TIMINGS, COLOR_VALUES, LAYOUTS } from "../constants/theme";
+import WaveBackground from "../ui/WaveBackground";
+import {
+  BUTTON_STYLES,
+  TIMINGS,
+  COLOR_VALUES,
+  LAYOUTS,
+} from "../../constants/theme";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -38,7 +43,9 @@ const Hero = () => {
           </p>
           <a
             className={`text-lg mt-6 ${BUTTON_STYLES.primary}`}
-            style={{ animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite` }}
+            style={{
+              animation: `pulse-button ${TIMINGS.pulseButton} ease-in-out infinite`,
+            }}
             onClick={() => navigate("/meditate")}
           >
             Clear Your Mind

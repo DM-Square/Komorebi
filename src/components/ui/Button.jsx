@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { BUTTON_STYLES } from "../constants/theme";
+import { BUTTON_STYLES } from "../../constants/theme";
 
 const Button = ({
   variant = "primary",

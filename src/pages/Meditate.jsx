@@ -1,7 +1,7 @@
 import React from "react";
 import Timer from "../components/Timer/Timer";
-import Footer from "../components/Footer";
-import WaveBackground from "../components/WaveBackground";
+import Footer from "../components/layout/Footer";
+import WaveBackground from "../components/ui/WaveBackground";
 
 const Meditate = () => {
   return (

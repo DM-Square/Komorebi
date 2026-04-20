@@ -2,8 +2,8 @@ import React from "react";
 import { FaTree, FaLeaf, FaSun } from "react-icons/fa";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import Footer from "../components/Footer";
-import WaveBackground from "../components/WaveBackground";
+import Footer from "../components/layout/Footer";
+import WaveBackground from "../components/ui/WaveBackground";
 import { TIMINGS, BUTTON_STYLES, COLORS } from "../constants/theme";
 
 const komorebiContent = [

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
-import { ASSETS } from "../constants/theme";
+import { ASSETS } from "../../constants/theme";
 
 const RotatingLogo = () => {
   const [logoIndex, setLogoIndex] = useState(0);

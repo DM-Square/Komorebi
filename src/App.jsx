@@ -5,7 +5,7 @@ import About from "./pages/About";
 import Meditate from "./pages/Meditate";
 
 import "./index.css";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/layout/Navbar";
 
 const App = () => {
   return (

@@ -1,4 +1,4 @@
-import { WAVE_CONFIG } from "../constants/theme";
+import { WAVE_CONFIG } from "../../constants/theme";
 
 const WaveBackground = () => {
   return (

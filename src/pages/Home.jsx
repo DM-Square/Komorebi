@@ -1,8 +1,8 @@
 import React from "react";
 import { FaTree, FaCloudRain, FaWater } from "react-icons/fa";
-import Hero from "../components/Hero";
-import Card from "../components/Card";
-import Footer from "../components/Footer";
+import Hero from "../components/layout/Hero";
+import Card from "../components/ui/Card";
+import Footer from "../components/layout/Footer";
 import { COLORS, BUTTON_STYLES, TIMINGS, TYPOGRAPHY } from "../constants/theme";
 
 const cardContent = [

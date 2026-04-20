@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 //eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from "motion/react";
-import { COLORS } from "../constants/theme";
+import { COLORS } from "../../constants/theme";
 import RotatingLogo from "./RotatingLogo";
 
 const links = [
@@ -10,8 +10,7 @@ const links = [
   { label: "About", href: "/about" },
 ];
 
-const linkClass =
-  `hover:text-${COLORS.primary} px-2 transition-all duration-400 focus:outline-none focus:text-${COLORS.primaryHover} focus:text-shadow-sm focus:text-shadow-emerald-900`;
+const linkClass = `hover:text-${COLORS.primary} px-2 transition-all duration-400 focus:outline-none focus:text-${COLORS.primaryHover} focus:text-shadow-sm focus:text-shadow-emerald-900`;
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
