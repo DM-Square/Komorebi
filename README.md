@@ -24,7 +24,7 @@ Una web app moderna per facilitare la meditazione consapevole, con timer program
 - [Personalizzazione](#-personalizzazione)
 - [Comandi](#-comandi)
 - [Test](#-test)
-- [Autore](#-autore)
+- [Info](#-info)
 
 ---
 
@@ -159,7 +159,7 @@ npm run test                  # Esegui i test
 
 ---
 
-## 👤 Autore
+## 👤 Info
 
 Per qualsiasi domanda o curiosità, contattami qui → [dm-square.github.io](https://dm-square.github.io/)
 
