@@ -27,7 +27,7 @@
 }
 
 .nav-link {
-  @apply px-2 transition-all duration-400 focus:outline-none focus:text-shadow-sm focus:text-shadow-emerald-900;
+  @apply md:px-2 transition-all duration-400 focus:outline-none focus:text-shadow-sm focus:text-shadow-emerald-900;
 }
 
 .nav-link:hover {
